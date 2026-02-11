@@ -1,0 +1,149 @@
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+.dangnhap {
+    background-color: #000000;
+    text-align: right;
+    padding: 13px 40px;
+    margin: 0;
+}
+.indam {
+    text-decoration: none;
+    font-weight: bold;
+    color:#f4f4f4
+}
+.indam:hover {
+    color:aqua
+}
+header {
+    background-color: #000000;
+    color:#fff;
+    text-align:center;
+}
+.tieude { 
+    margin:0 0 6px; font-size:28px; letter-spacing:0.3px; 
+}
+.vanbantieude { 
+    margin:0; color: rgba(255,255,255,0.95); font-weight:600; 
+}
+.khungtieude {
+    max-width:1000px;
+    margin:18px auto;
+    padding:0 16px;
+}
+.logo{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+nav{
+    background-color: #000000;
+    padding: 15px 60px;
+    border-radius: 50px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    gap: 60px;
+    box-shadow: 0 0 25px blue;
+    position: relative;
+}
+nav a{
+    position: relative;
+    color:#aeefff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: 0.3s;
+}
+nav a:hover{
+    color: #00e5ff;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #00e5ff, blue);
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+    bottom: 0;
+}
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.link{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 4500px;
+}
+.khunghinhanh {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease
+}
+.khunghinhanh:hover {
+    transition: translateY(-5px);
+    box-shadow: 0 8px  25px rgba(0,0,0,0.15);
+}
+.hinhanh {
+    width: 500px;
+    margin-right: 15px;
+    height: 350px;
+    border-radius: 8px;
+    border: 3px solid #fff;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    margin-right: 25px;
+}
+.noidung {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-family: Arial,sans-serif;
+    line-height: 1.6;
+}
+.noidungchinh {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-family: Arial,sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+.noidungtieude {
+    margin-top: 0;
+    color: #333;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-family: Arial,sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+.footer{
+    background-color: #24262b;
+    padding: 70px 0;
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff
+}
+.container{
+    max-width: 1170px;
+    margin: auto;
+}
