@@ -1,0 +1,396 @@
+/* --- 1. THIẾT LẬP CHUNG --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #4a3f35;
+    background: transparent !important; /* Quan trọng để thấy Matrix */
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HIỆU ỨNG MATRIX NỀN */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+    pointer-events: none;
+    background-color: #0d0202; /* Nền tối để Matrix đỏ nổi bật hơn */
+}
+
+/* --- 2. HEADER & NAV --- */
+.banner-container {
+    height: 350px;
+    background-color: #1a0a0a;
+    overflow: hidden;
+}
+
+.responsive-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.6) sepia(0.3) hue-rotate(-30deg); /* Chỉnh ảnh hơi hướng đỏ */
+}
+
+.main-nav {
+    background-color: rgba(255, 245, 235, 0.95);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #ff0000; /* Đường kẻ đỏ thương hiệu */
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-item {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #5d534a;
+    padding: 8px 16px;
+    transition: 0.3s;
+    background-color: #ede0d4;
+    border-radius: 30px;
+}
+
+.nav-item.active, .nav-item:hover {
+    color: #ff0000;
+    background-color: #4a3f35;
+    border-radius: 30px;
+}
+
+.btn-signup {
+    background: #ff0000; /* Màu nền đỏ */
+    color: white !important; /* Màu chữ trắng */
+    padding: 10px 25px;
+    border: 2px solid #ff0000; /* Tạo khung rõ rệt */
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block; /* Đảm bảo nút giữ được hình dáng khung */
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2); /* Đổ bóng nhẹ */
+}
+
+.btn-signup:hover {
+    background: transparent; /* Khi di chuột vào thì nền trong suốt */
+    color: #ff0000 !important; /* Chữ chuyển sang đỏ */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* Phát sáng mạnh khi hover */
+}
+
+/* --- 3. NỘI DUNG CHÍNH (CẤU TRÚC 3 HÀNG DÍNH LIỀN) --- */
+.content-area {
+    padding: 0;
+}
+
+/* Style chung cho các Section */
+.intro-section, .reason-section, .fact-box {
+    margin: 0 !important;
+    padding: 100px 20px;
+    text-align: left;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+}
+
+/* Hàng 1: Sơ lược */
+.intro-section {
+    background: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Hàng 2: Lý do (Tạo màu khác biệt nhẹ) */
+.reason-section {
+    background: rgba(245, 235, 224, 0.85) !important;
+}
+
+/* Hàng 3: Thực trạng (Nền tối để kết thúc trang mạnh mẽ) */
+.fact-box {
+    background: rgba(26, 10, 10, 0.92) !important;
+    color: #fdfcfb;
+    border-bottom: none;
+}
+
+/* Typography cho 3 hàng */
+h2 {
+    font-size: 2.5rem;
+    color: #1a0a0a;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.fact-box h2 {
+    color: #ff0000; /* Tiêu đề đỏ trên nền tối */
+}
+
+.highlight {
+    color: #ff0000;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+p {
+    font-size: 1.1rem;
+    max-width: 900px;
+    margin-bottom: 20px;
+}
+
+/* List trong Thực trạng */
+.fact-box ul {
+    list-style: none;
+}
+
+.fact-box li {
+    margin-bottom: 15px;
+    padding-left: 35px;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.fact-box li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: #ff0000;
+    font-size: 0.8rem;
+    top: 5px;
+}
+
+/* --- 4. FOOTER --- */
+footer {
+    background-color: #0d0202;
+    color: #ede0d4;
+    padding: 60px 0;
+    margin-top: 0;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #ff0000;
+    margin: 20px auto;
+    width: 50%;
+}
+
+.credit-btn {
+    padding: 12px 30px;
+    background: transparent;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.credit-btn:hover {
+    background: #ff0000;
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+/* --- MODAL STYLE (MÀU KEM & TIN CẬY) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box {
+    background: #fffdf5; /* Màu kem nhã nhặn */
+    padding: 35px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 380px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    color: #4a3f35;
+    text-align: center;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #8b7969;
+    cursor: pointer;
+}
+
+.auth-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    color: #3e362e;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.modal-header p {
+    font-size: 0.85rem;
+    color: #8b7969;
+    margin-bottom: 25px;
+}
+
+/* Form Input */
+.input-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #5d534a;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e2d1c3;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #a67c52;
+    box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.1);
+}
+
+/* Checkbox "Không phải là robot" */
+.robot-check {
+    background: #f9f7f0;
+    border: 1px solid #e2d1c3;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+    gap: 10px;
+}
+
+/* Nút Submit Chính */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #3e362e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #5d534a;
+}
+
+/*ĐÂY LÀ PHẦN ĐĂNG NHẬP + ĐĂNG KÝ :3*/
+.modal-footer {
+    border-top: 1px solid #e2d1c3;
+    padding-top: 15px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-small-signup {
+    color: #a67c52;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #a67c52;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    transition: 0.3s;
+}
+
+.btn-small-signup:hover {
+    background: #a67c52;
+    color: white;
+}
+/* Tinh chỉnh tiêu đề nút chuyển đổi */
+.toggle-auth {
+    color: #a67c52;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Đảm bảo form đăng ký có input email chuẩn */
+.input-group input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e2d1c3;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Hiệu ứng mờ dần khi chuyển đổi form */
+#login-content, #register-content {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

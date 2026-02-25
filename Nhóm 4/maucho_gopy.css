@@ -1,0 +1,174 @@
+/* ============================================================
+   FILE: mauchoBTN.css
+   CHỨC NĂNG: Giao diện Góp ý + NAV Ngang + Footer chuẩn
+   ============================================================ */
+
+/* --- THIẾT LẬP CHUNG --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #0d0202;
+    color: #ede0d4;
+    line-height: 1.6;
+}
+
+/* --- 1. THANH ĐIỀU HƯỚNG (ÉP NẰM NGANG) --- */
+header {
+    background: rgba(255, 245, 235, 0.95);
+    padding: 12px 0;
+    border-bottom: 2px solid #ff0000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav-wrapper {
+    display: flex !important; /* Ép buộc dùng Flexbox */
+    flex-direction: row !important; /* Ép nằm ngang */
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.nav-links {
+    display: flex !important;
+    flex-direction: row !important; /* Ép các mục menu nằm ngang */
+    gap: 15px;
+}
+
+.nav-item {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #5d534a;
+    padding: 8px 15px;
+    background: #ede0d4;
+    border-radius: 30px;
+    transition: 0.3s;
+    white-space: nowrap; /* Không cho chữ nhảy xuống dòng */
+}
+
+.nav-item.active, .nav-item:hover {
+    background: #3e362e;
+    color: #ff0000;
+}
+
+.btn-signup {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #ff0000;
+    color: white !important;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    height: 35px;
+    padding: 0 25px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* --- 2. KHUNG GÓP Ý --- */
+.content-area {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.feedback-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.feedback-container h2 {
+    color: #ff0000;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ff0000;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.feedback-input {
+    font-family: 'Inter', Arial, sans-serif;
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #444;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.feedback-input:focus {
+    border-color: #ff0000;
+    outline: none;
+}
+
+.feedback-submit-btn {
+    font-family: 'Inter', Arial, sans-serif;
+    width: 100%;
+    padding: 15px;
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* --- 3. FOOTER CHUẨN --- */
+footer {
+    background: #0d0202;
+    padding: 40px 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #ff0000;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.copyright {
+    color: #ff0000;
+    font-size: 18px; /* Cỡ trung bình theo yêu cầu */
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+}

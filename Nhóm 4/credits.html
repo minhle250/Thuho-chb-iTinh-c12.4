@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đội Ngũ Phát Triển</title>
+    <link rel="stylesheet" href="maucho_credit.css">
+</head>
+<body class="credit-page"><canvas id="matrix-canvas"></canvas>
+
+    <main class="container">
+        <h1 class="credit-title">ĐỘI NGŨ PHÁT TRIỂN</h1>
+        
+        <div class="zigzag-container">
+            <div class="member-row">
+                <div class="member-image">
+                    <img src="daidien3.jpg" alt="Bùi Hoàng Anh">
+                </div>
+                <div class="member-info">
+                    <span class="badge-role">Coder Chính</span>
+                    <h2>Bùi Hoàng Anh</h2>
+                    <p>Phụ trách kiến trúc hệ thống và xử lý logic mã nguồn.</p>
+                </div>
+            </div>
+
+            <div class="member-row reverse">
+                <div class="member-image">
+                    <img src="daidien4.jpg" alt="Nguyễn Thế Vĩnh Khang">
+                </div>
+                <div class="member-info">
+                    <span class="badge-role">Coder Phụ</span>
+                    <h2>Nguyễn Thế Vĩnh Khang</h2>
+                    <p>Hỗ trợ tối ưu hóa giao diện và gỡ lỗi (debug).</p>
+                </div>
+            </div>
+
+            <div class="member-row">
+                <div class="member-image">
+                    <img src="daidien1.jpg" alt="Lê Nho Nhật Tân">
+                </div>
+                <div class="member-info">
+                    <span class="badge-role">Nội Dung</span>
+                    <h2>Lê Nho Nhật Tân</h2>
+                    <p>Biên soạn và kiểm duyệt các nội dung kiến thức chuyên môn.</p>
+                </div>
+            </div>
+
+            <div class="member-row reverse">
+                <div class="member-image">
+                    <img src="daidien2.jpg" alt="Phạm Cao Khánh">
+                </div>
+                <div class="member-info">
+                    <span class="badge-role">Nội Dung</span>
+                    <h2>Phạm Cao Khánh</h2>
+                    <p>Thiết kế hình ảnh và thu thập dữ liệu về an toàn mạng.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-container" style="text-align: center; padding-bottom: 60px;">
+    <a href="index.html" class="btn-back"> Quay lại Trang Chủ </a>
+        </div>
+    </main>
+<script>
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+
+// Hàm thiết lập kích thước chuẩn xác
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%&<>!#';
+const fontSize = 10; // Cỡ chữ siêu nhỏ để tăng mật độ cực đại
+const columns = Math.ceil(canvas.width / fontSize);
+
+// Khởi tạo vị trí rơi: phân bố đều trên toàn bộ chiều cao màn hình ngay lập tức
+const rainDrops = [];
+for (let x = 0; x < columns; x++) {
+    // Cho các dòng mã bắt đầu ở các vị trí ngẫu nhiên từ đỉnh đến đáy màn hình
+    rainDrops[x] = Math.random() * -(canvas.height / fontSize);
+}
+
+const draw = () => {
+    // Làm mờ nền để tạo hiệu ứng đuôi dài
+    ctx.fillStyle = 'rgba(253, 252, 251, 0.1)'; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        
+        // Màu sắc: Kết hợp giữa nâu đậm và một chút biến thiên độ sáng để tạo chiều sâu
+        ctx.fillStyle = Math.random() > 0.9 ? '#a67c52' : '#5d4d3f'; 
+        
+        ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+        // Tần suất reset cực cao: dòng mã vừa chạm đáy là xuất hiện lại ngay
+        if (rainDrops[i] * fontSize > canvas.height) {
+            // Xác suất xuất hiện lại gần như ngay lập tức (98%)
+            if (Math.random() > 0.02) { 
+                rainDrops[i] = 0;
+            }
+        }
+        
+        // Tốc độ rơi nhanh và dồn dập
+        rainDrops[i] += 1.8; 
+    }
+};
+
+// Chạy với tốc độ 30fps (33ms) để mượt mà mà không quá lag máy
+setInterval(draw, 33);
+
+window.addEventListener('resize', () => {
+    resizeCanvas();
+    // Khi resize, cần tính lại số cột để không bị trống
+    const newColumns = Math.ceil(canvas.width / fontSize);
+    while(rainDrops.length < newColumns) rainDrops.push(0);
+});
+</script>
+</body>
+</html>

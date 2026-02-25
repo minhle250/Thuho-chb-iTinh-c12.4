@@ -1,0 +1,195 @@
+/* ============================================================
+   HỆ THỐNG AUTHENTICATION (ĐĂNG NHẬP - ĐĂNG KÝ)
+   ============================================================ */
+
+/* 1. NÚT KÍCH HOẠT TRÊN THANH NAV */
+.btn-signup {
+    margin-left: auto; /* Đẩy nút về bên phải cùng */
+    background: #ff0000;
+    color: white !important;
+    height: 35px;
+    padding: 0 25px;
+    border: 2px solid #ff0000; /* Tạo khung rõ rệt */
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    /* Căn giữa chữ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-signup:hover {
+    background: transparent; /* Khi di chuột vào thì nền trong suốt */
+    color: #ff0000 !important; /* Chữ chuyển sang đỏ */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* Phát sáng mạnh khi hover */
+}
+/* 2. LỚP PHỦ VÀ KHUNG MODAL */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px); /* Hiệu ứng mờ nền Matrix phía sau */
+    z-index: 2000;
+    display: none; /* Sẽ được điều khiển bằng JS */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box {
+    background: #fffdf5; /* Màu kem sang trọng */
+    padding: 35px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 380px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    color: #4a3f35;
+    text-align: center;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #8b7969;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-modal:hover {
+    color: #ff0000;
+}
+
+/* 3. GIAO DIỆN NỘI DUNG (HEADER & FORM) */
+.auth-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    color: #3e362e;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    text-transform: none; /* Giữ nguyên kiểu chữ bình thường */
+}
+
+.modal-header p {
+    font-size: 0.85rem;
+    color: #8b7969;
+    margin-bottom: 25px;
+}
+
+/* 4. CÁC Ô NHẬP LIỆU (INPUTS) */
+.input-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #5d534a;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e2d1c3;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #a67c52;
+    box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.1);
+}
+
+/* 5. PHẦN XÁC NHẬN ROBOT */
+.robot-check {
+    background: #f9f7f0;
+    border: 1px solid #e2d1c3;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+    gap: 10px;
+}
+
+/* 6. NÚT SUBMIT CHÍNH */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #3e362e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #5d534a;
+    transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ nút */
+}
+
+/* 7. PHẦN CHÂN MODAL & CHUYỂN ĐỔI FORM */
+.modal-footer {
+    border-top: 1px solid #e2d1c3;
+    padding-top: 15px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.toggle-auth {
+    color: #a67c52;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.toggle-auth:hover {
+    color: #ff0000;
+}
+
+/* 8. HIỆU ỨNG CHUYỂN CẢNH MƯỢT MÀ */
+#login-content, #register-content {
+    animation: fadeInModal 0.4s ease;
+}
+
+@keyframes fadeInModal {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}

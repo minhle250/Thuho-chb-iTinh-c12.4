@@ -1,0 +1,175 @@
+.credit-title {
+    text-align: center;
+    color: #5d534a;
+    margin: 40px 0;
+    font-size: 2.5rem;
+}
+
+/* Container tổng để đảm bảo nội dung không chạm mép màn hình */
+.zigzag-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; 
+    padding: 0 40px; /* Thêm khoảng đệm hai bên cho toàn bộ container */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.member-row {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Tăng khoảng cách giữa ảnh và chữ */
+    width: 100%;
+}
+
+/* Hàng chẵn (Ảnh phải - Chữ trái) */
+.member-row.reverse {
+    flex-direction: row-reverse;
+    /* Không cần thêm lệnh sát mép ở đây nữa vì đã có gap và padding */
+}
+
+/* Đảm bảo nội dung chữ không bị quá dài gây cảm giác sát mép */
+.member-info {
+    flex: 1;
+    padding: 20px; /* Tạo khoảng trống bên trong khối chữ */
+}
+
+.member-image {
+    flex: 0 0 auto; /* Giữ nguyên kích thước ảnh, không cho nó co giãn quá mức */
+}
+
+
+.member-image img {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 15px 15px 0px #e2d1c3; /* Đổ bóng kiểu retro */
+    border: 5px solid white;
+}
+
+
+.badge-role {
+    background: #8b7969;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.member-info h2 {
+    margin: 15px 0 10px;
+    color: #3e362e;
+}
+
+.member-info p {
+    color: #7d6e63;
+    font-style: italic;
+}
+
+/* Mobile: Trở về 1 cột nếu màn hình nhỏ */
+@media (max-width: 768px) {
+    .member-row, .member-row.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.member-image img {
+    /* Quan trọng: Chiều rộng và chiều cao phải bằng nhau */
+    width: 250px;
+    height: 250px;
+    
+    /* Biến thành hình tròn */
+    border-radius: 50%;
+    
+    /* Giúp ảnh không bị méo (tự động cắt trung tâm) */
+    object-fit: cover;
+    
+    /* Thêm viền trắng và bóng cho sang trọng */
+    border: 5px solid white;
+    box-shadow: 0 10px 25px rgba(139, 121, 105, 0.3);
+    
+    transition: transform 0.3s ease;
+}
+.member-image img:hover {
+    /* Hiệu ứng phóng nhẹ khi di chuột vào */
+    transform: scale(1.05);
+}
+.member-image {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Căn giữa ảnh trong cột */
+    align-items: center;
+}
+/* Loại bỏ hoàn toàn khung và lề */
+#matrix-canvas {
+    position: fixed; /* Cố định nền khi cuộn trang */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block; /* Loại bỏ khoảng trống inline phía dưới */
+    z-index: -1;
+    opacity: 0.35; 
+    border: none; /* Đảm bảo không có viền tự sinh */
+    pointer-events: none; /* Để chuột có thể tương tác với các nút phía dưới */
+}
+
+/* Reset lại body để không có khoảng trắng bao quanh */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #fdfcfb;
+}
+
+body {
+    background-color: #fdfcfb; /* Màu nền cơ bản */
+    overflow-x: hidden;
+}
+
+
+/* Hiệu ứng nhấp nháy nhẹ cho các tiêu đề (Glow effect) */
+h1, h2 {
+    text-shadow: 0 0 10px rgba(166, 124, 82, 0.3);
+    transition: text-shadow 0.3s ease;
+}
+
+h1:hover {
+    text-shadow: 0 0 20px rgba(166, 124, 82, 0.6);
+}
+.btn-back {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 40px; /* Tăng độ to của nút */
+    
+    background: #3e362e; /* Tông nâu đất đậm cực sang */
+    color: #ede0d4 !important; /* Màu chữ kem sáng */
+    
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    
+    border-radius: 50px; /* Bo tròn hoàn toàn */
+    box-shadow: 0 10px 20px rgba(62, 54, 46, 0.3); /* Đổ bóng sâu để tạo độ nổi */
+    
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng đàn hồi */
+    border: 2px solid transparent;
+}
+
+.btn-back:hover {
+    background: #a67c52; /* Chuyển sang nâu vàng khi di chuột */
+    transform: translateY(-5px); /* Bay lên một chút */
+    box-shadow: 0 15px 25px rgba(166, 124, 82, 0.4);
+    color: white !important;
+}
+
+.btn-back:active {
+    transform: translateY(-2px); /* Hiệu ứng nhấn nút */
+}
+

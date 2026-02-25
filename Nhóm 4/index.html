@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>An Toàn Mạng - Trang Chủ</title>
+
+    <link rel="stylesheet" href="maucho_index.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body><canvas id="matrix-canvas"></canvas>
+
+
+
+    <header>
+
+        <div class="banner-container">
+
+            <img src="anhbialogo.jpg" alt="Banner An Toàn Mạng" class="responsive-img">
+      </div>
+
+       
+
+<nav class="main-nav">
+    <div class="container nav-wrapper">
+        <div class="nav-links">
+            <span class="nav-item active">Trang chủ</span>
+            <a href="BTN2.html" class="nav-item">Nguy cơ</a>
+            <a href="BTN3.html" class="nav-item">Biện pháp</a>
+            <a href="BTN6.html" class="nav-item">Tình Huống</a>
+            <a href="BTN5.html" class="nav-item">Tin tức</a>
+            <a href="BTN4.html" class="nav-item">Góp ý</a>
+        </div>
+        
+        <div class="nav-auth">
+            <a href="#" class="btn-signup">Đăng ký</a>
+        </div>
+    </div>
+</nav>
+
+    </header>
+
+
+
+<main class="content-area">
+    <section class="container intro-section">
+        <div class="section-content">
+            <h2><span class="highlight">01.</span> Sơ lược khái quát</h2>
+            <p><strong>An Toàn Mạng</strong> là nền tảng số hóa chuyên biệt về bảo mật, được thiết kế để cung cấp những kiến thức thực tiễn nhất về phòng chống tội phạm mạng. Chúng tôi đóng vai trò là "lá chắn" kiến thức, giúp người dùng phổ thông hiểu rõ về các giao thức bảo mật và cách vận hành an toàn trên internet.</p>
+        </div>
+    </section>
+
+    <section class="container reason-section">
+        <div class="section-content">
+            <h2><span class="highlight">02.</span> Lý do trang web ra đời</h2>
+            <p>Trong bối cảnh chuyển đổi số diễn ra mạnh mẽ, sự thiếu hụt kiến thức về an ninh mạng đang trở thành lỗ hổng lớn nhất. Trang web này ra đời nhằm <strong>đơn giản hóa</strong> các khái niệm bảo mật phức tạp, giúp bất kỳ ai cũng có thể tự bảo vệ tài sản số và quyền riêng tư của chính mình trước những thủ đoạn tinh vi của hacker.</p>
+        </div>
+    </section>
+
+    <section class="container fact-box">
+        <div class="fact-content">
+            <h2><span class="highlight">03.</span> Thực trạng</h2>
+            <p>Hiện nay, Việt Nam đang đứng trước những thách thức lớn về an ninh phi truyền thống:</p>
+            <ul>
+                <li><strong>Gia tăng quy mô:</strong> Các vụ lừa đảo tài chính qua mạng tăng hơn 50% mỗi năm.</li>
+                <li><strong>Sự tinh vi:</strong> Công nghệ Deepfake và AI đang được tin tặc sử dụng để giả mạo danh tính.</li>
+                <li><strong>Hậu quả:</strong> Hàng nghìn tỷ đồng bị chiếm đoạt mỗi năm do sự chủ quan và thiếu kỹ năng nhận diện rủi ro từ người dùng.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="container footer-bottom">
+        <hr class="footer-divider">
+        <p class="copyright-text">© 2026 - Phục vụ cho mục đích học tập</p>
+        <a href="credits.html" class="credit-btn">
+            <span>🚀</span> Đội ngũ phát triển
+        </a>
+    </div>
+</footer>
+<div id="auth-modal" class="modal-overlay">
+    <div class="modal-box">
+        <span class="close-modal">&times;</span>
+        
+        <div id="login-content">
+            <div class="modal-header">
+                <div class="auth-icon">🛡️</div>
+                <h2>Chào mừng trở lại</h2>
+                <p>Vui lòng đăng nhập để tiếp tục</p>
+            </div>
+            <form class="auth-form">
+                <div class="input-group">
+                    <label>Tên đăng nhập</label>
+                    <input type="text" placeholder="Username của bạn">
+                </div>
+                <div class="input-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" placeholder="••••••••">
+                </div>
+                <div class="robot-check">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span> Tôi không phải là người máy
+                    </label>
+                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="captcha" width="25">
+                </div>
+                <button type="submit" class="btn-submit">Đăng nhập ngay</button>
+            </form>
+            <div class="modal-footer">
+                <span>Chưa có tài khoản?</span>
+                <a href="javascript:void(0)" class="toggle-auth" onclick="switchAuth('register')">Đăng ký ngay</a>
+            </div>
+        </div>
+
+        <div id="register-content" style="display: none;">
+            <div class="modal-header">
+                <div class="auth-icon">📝</div>
+                <h2>Tạo tài khoản mới</h2>
+                <p>Tham gia cộng đồng an toàn mạng</p>
+            </div>
+            <form class="auth-form">
+                <div class="input-group">
+                    <label>Họ và tên</label>
+                    <input type="text" placeholder="Nguyễn Văn A">
+                </div>
+                <div class="input-group">
+                    <label>Email liên kết</label>
+                    <input type="email" placeholder="example@gmail.com">
+                </div>
+                <div class="input-group">
+                    <label>Mật khẩu mới</label>
+                    <input type="password" placeholder="Tối thiểu 8 ký tự">
+                </div>
+                <div class="input-group">
+                    <label>Xác nhận mật khẩu</label>
+                    <input type="password" placeholder="Nhập lại mật khẩu">
+                </div>
+                <button type="submit" class="btn-submit">Hoàn tất đăng ký</button>
+            </form>
+            <div class="modal-footer">
+                <span>Đã có tài khoản?</span>
+                <a href="javascript:void(0)" class="toggle-auth" onclick="switchAuth('login')">Đăng nhập</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+// Lấy các phần tử
+const modal = document.getElementById('auth-modal');
+const btnSignup = document.querySelector('.btn-signup');
+const btnClose = document.querySelector('.close-modal');
+
+// Mở modal khi nhấn nút Đăng ký
+btnSignup.onclick = function(e) {
+    e.preventDefault(); // Ngăn trang web load lại
+    modal.style.display = 'flex';
+}
+
+// Đóng modal khi nhấn dấu X
+btnClose.onclick = function() {
+    modal.style.display = 'none';
+}
+
+// Đóng modal khi nhấn ra ngoài khung
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+<script>
+function switchAuth(type) {
+    const loginContent = document.getElementById('login-content');
+    const registerContent = document.getElementById('register-content');
+    
+    if (type === 'register') {
+        loginContent.style.display = 'none';
+        registerContent.style.display = 'block';
+    } else {
+        loginContent.style.display = 'block';
+        registerContent.style.display = 'none';
+    }
+}
+</script>
+<script>
+    // Đưa các biến ra ngoài để tất cả các hàm đều dùng được
+    let canvas, ctx, columns, rainDrops;
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%&<>!#';
+    const fontSize = 11;
+    function initMatrix() {
+        canvas = document.getElementById('matrix-canvas');
+        if (!canvas) return;
+        
+        ctx = canvas.getContext('2d');
+        resize();
+
+        // Khởi tạo vị trí giọt mưa
+        columns = Math.ceil(canvas.width / fontSize);
+        rainDrops = Array.from({ length: columns }).fill(0).map(() => Math.random() * -100);
+
+        // Chạy vòng lặp vẽ
+        setInterval(draw, 33);
+    }
+
+    function resize() {
+        if (!canvas) return;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        // Cập nhật lại số cột khi resize màn hình
+        columns = Math.ceil(canvas.width / fontSize);
+    }
+
+    function draw() {
+        // Vẽ lớp phủ mờ để tạo hiệu ứng đuôi rơi
+        ctx.fillStyle = 'rgba(253, 252, 251, 0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < rainDrops.length; i++) {
+            const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+            
+            // Màu sắc theo tông nâu vàng của bạn
+            // Màu đỏ tươi và đỏ rượu vang
+            ctx.fillStyle = Math.random() > 0.9 ? '#FF0000' : '#440000'; 
+            
+            ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                rainDrops[i] = 0;
+            }
+            rainDrops[i] += 1.5; 
+        }
+    }
+
+    // Lắng nghe sự kiện
+    window.addEventListener('resize', resize);
+    window.addEventListener('load', initMatrix);
+</script>
+
+</body>
+
+</html>
