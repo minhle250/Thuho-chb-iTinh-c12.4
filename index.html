@@ -108,13 +108,13 @@
 
         /* ANSWER SHEET SIMULATOR (Phiếu trả lời trắc nghiệm) */
         .bubble-sheet {
-            background: #fff; border: 2px solid var(--bubble-sheet-red); padding: 15px; border-radius: 4px;
-            display: flex; flex-direction: column; gap: 15px; position: relative;
-            box-shadow: inset 0 0 10px rgba(225, 29, 72, 0.1);
+            background: #fff; border: 2px solid var(--bubble-sheet-red); padding: 12px; border-radius: 4px;
+            display: flex; flex-direction: column; gap: 12px; position: relative;
+            box-shadow: inset 0 0 10px rgba(225, 29, 72, 0.1); font-family: 'Helvetica Neue', Arial, sans-serif;
         }
         .bubble-sheet-title {
             text-align: center; color: var(--text-dark); font-weight: 800; font-size: 18px;
-            border-bottom: 2px solid var(--bubble-sheet-red); padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase;
+            border-bottom: 2px solid var(--bubble-sheet-red); padding-bottom: 5px; margin-bottom: 5px; text-transform: uppercase;
         }
         .bubble-section {
             border: 1px solid var(--bubble-sheet-red); padding: 10px; position: relative;
@@ -126,14 +126,22 @@
         /* Bubble layout specific */
         .b-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; font-size: 12px; color: var(--bubble-sheet-red); font-weight: 700; }
         .b-circle {
-            width: 18px; height: 18px; border: 1px solid var(--bubble-sheet-red); border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; font-size: 10px; color: var(--bubble-sheet-red);
+            width: 16px; height: 16px; border: 1px solid var(--bubble-sheet-red); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; font-size: 9px; color: var(--bubble-sheet-red);
+            margin-bottom: 3px; font-weight: bold;
         }
         
         /* Grid cho Phần 3 (Trả lời ngắn) */
-        .b-grid-short { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .b-col { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-        .b-box { width: 24px; height: 28px; border: 1px solid var(--bubble-sheet-red); margin-bottom: 4px; }
+        .b-col { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+        .b-write-box { 
+            width: 22px; height: 26px; border: 1px solid var(--bubble-sheet-red); margin-bottom: 4px; 
+            display: flex; align-items: center; justify-content: center; font-family: monospace; 
+            font-size: 18px; font-weight: 900; color: #1e293b; 
+        }
+        .filled-bubble {
+            background-color: #1e293b !important; color: white !important; border-color: #1e293b !important;
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.8);
+        }
 
         /* Tooltip Warning */
         .warning-tooltip {
@@ -306,14 +314,41 @@
                     </div>
                 </div>
 
-                <!-- Phần 3 -->
+                <!-- Phần 3 (Dynamic digits drawing) -->
                 <div class="bubble-section">
-                    <h4>Phần III: Trả lời ngắn (Tự luận số hóa)</h4>
-                    <div class="b-grid-short">
+                    <h4>Phần III: Trả lời ngắn (Ví dụ: 86,0)</h4>
+                    <div style="display: flex; gap: 8px;">
+                        <!-- Column 1: 8 -->
                         <div class="b-col">
-                            <span style="font-size:12px; font-weight:bold;">Câu 1</span>
-                            <div class="b-box"></div><div class="b-box"></div><div class="b-box"></div>
-                            <div class="b-circle">-</div><div class="b-circle">,</div><div class="b-circle">0</div>
+                            <div class="b-write-box">8</div>
+                            <div class="b-circle">-</div><div class="b-circle">,</div>
+                            <div class="b-circle">0</div><div class="b-circle">1</div><div class="b-circle">2</div><div class="b-circle">3</div>
+                            <div class="b-circle">4</div><div class="b-circle">5</div><div class="b-circle">6</div><div class="b-circle">7</div>
+                            <div class="b-circle filled-bubble">8</div><div class="b-circle">9</div>
+                        </div>
+                        <!-- Column 2: 6 -->
+                        <div class="b-col">
+                            <div class="b-write-box">6</div>
+                            <div class="b-circle" style="visibility: hidden;">-</div><div class="b-circle">,</div>
+                            <div class="b-circle">0</div><div class="b-circle">1</div><div class="b-circle">2</div><div class="b-circle">3</div>
+                            <div class="b-circle">4</div><div class="b-circle">5</div><div class="b-circle filled-bubble">6</div><div class="b-circle">7</div>
+                            <div class="b-circle">8</div><div class="b-circle">9</div>
+                        </div>
+                        <!-- Column 3: , -->
+                        <div class="b-col">
+                            <div class="b-write-box">,</div>
+                            <div class="b-circle" style="visibility: hidden;">-</div><div class="b-circle filled-bubble">,</div>
+                            <div class="b-circle">0</div><div class="b-circle">1</div><div class="b-circle">2</div><div class="b-circle">3</div>
+                            <div class="b-circle">4</div><div class="b-circle">5</div><div class="b-circle">6</div><div class="b-circle">7</div>
+                            <div class="b-circle">8</div><div class="b-circle">9</div>
+                        </div>
+                        <!-- Column 4: 0 -->
+                        <div class="b-col">
+                            <div class="b-write-box">0</div>
+                            <div class="b-circle" style="visibility: hidden;">-</div><div class="b-circle">,</div>
+                            <div class="b-circle filled-bubble">0</div><div class="b-circle">1</div><div class="b-circle">2</div><div class="b-circle">3</div>
+                            <div class="b-circle">4</div><div class="b-circle">5</div><div class="b-circle">6</div><div class="b-circle">7</div>
+                            <div class="b-circle">8</div><div class="b-circle">9</div>
                         </div>
                     </div>
 
@@ -535,11 +570,14 @@
     let selectedSubjects = [];
     const maxSelection = 3;
 
+    // Expanded Dictionary handling deeply rooted MOET combos
     const blocksDict = {
         "Toán,Lý,Hóa": "A00", "Toán,Lý,Anh": "A01", "Toán,Văn,Anh": "D01",
         "Toán,Hóa,Sinh": "B00", "Văn,Sử,Địa": "C00", "Toán,Văn,Lý": "C01",
         "Toán,Văn,Hóa": "C02", "Toán,Văn,Sinh": "B08", "Văn,Anh,Sử": "D14",
-        "Toán,Lý,Sinh": "A02", "Văn,Anh,Địa": "D15"
+        "Toán,Lý,Sinh": "A02", "Văn,Anh,Địa": "D15", 
+        "Toán,Văn,Sử": "C03", "Toán,Văn,Địa": "C04",
+        "Toán,Anh,Sử": "D09", "Toán,Anh,Địa": "D10"
     };
 
     function toggleSubject(rowElement, subjectName) {
