@@ -1,0 +1,204 @@
+:root{
+  --brand:#0b5bd7;      /* màu chủ đạo */
+  --muted:#6b7280;      /* màu chữ phụ */
+  --bg:#f6f7fb;         /* nền trang */
+  --card:#ffffff;       /* nền thẻ */
+  --max-width:1100px;   /* chiều rộng nội dung */
+  --radius:10px;        /* bo góc */
+  --gap:18px;           /* khoảng cách lưới */
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#0f1724;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Container chính */
+.wrap{
+  max-width:var(--max-width);
+  margin:22px auto;
+  padding:0 16px;
+}
+
+/* ========== Header ========== */
+/* Header dùng flex: logo - menu - utilities */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+/* Logo: .mark có thể thay bằng <img> */
+.logo{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+}
+.mark{
+  width:55px; height:55px;
+  border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-weight:700; font-size:18px;
+  background:linear-gradient(135deg,var(--brand),#1e90ff);
+  box-shadow:0 4px 10px rgba(11,91,215,0.15);
+}
+.title .name{font-weight:700; font-size:16px}
+.title .tag{font-size:12px; color:var(--muted)}
+
+/* Nav chính */
+.topnav{ display:flex; gap:12px; align-items:center; }
+.topnav a{
+  color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:6px; font-size:14px;
+}
+.topnav a:hover{ background:rgba(11,91,215,0.06); color:var(--brand) }
+
+/* Header utilities (tìm kiếm + nút) */
+.header-utils{ display:flex; gap:12px; align-items:center; }
+
+/* Thanh tìm kiếm: đơn giản, tròn */
+.searchbar{
+  display:flex; align-items:center; gap:8px;
+  background:var(--card); padding:8px 10px; border-radius:999px;
+  box-shadow:0 1px 2px rgba(16,24,40,0.04);
+}
+.searchbar input{
+  border:0; outline:0; background:transparent; font-size:14px; width:180px;
+}
+
+/* Nút chung */
+.btn{
+  display:inline-block; background:var(--brand); color:#fff; padding:8px 12px;
+  border-radius:8px; text-decoration:none; font-size:14px;
+}
+.btn.block{ display:block; width:100%; text-align:center; }
+
+/* ========== Layout: grid hai cột ========== */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap:var(--gap);
+  align-items:start;
+}
+
+/* ========== Hero (bài nổi bật) ========== */
+.hero{
+  display:flex;
+  gap:18px;
+  background:linear-gradient(180deg, rgba(11,91,215,0.04), rgba(11,91,215,0.01));
+  padding:16px;
+  border-radius:var(--radius);
+  align-items:center;
+}
+.hero-media{
+  width:740px; height:auto; flex-shrink:0; border-radius:8px; overflow:hidden;
+}
+.hero-content h2{ margin:0 0 6px 0; font-size:20px; }
+.summary{ margin-top:10px; color:black; }
+
+/* ========== Cards (lưới bài nhỏ) ========== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:14px;
+}
+
+/* Mỗi card */
+.card{
+  display:flex; gap:12px; align-items:flex-start;
+  background:var(--card); padding:12px; border-radius:10px;
+  box-shadow:0 6px 18px rgba(13,17,23,0.04);
+}
+.card .thumb{ width:110px; height:74px; flex-shrink:0; overflow:hidden; border-radius:6px; }
+.card .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.card-body h3{ margin:0; font-size:15px; }
+.card-body .muted{ color:var(--muted); font-size:13px; margin-top:6px; }
+
+/* Phân trang */
+.pagination{ display:flex; gap:8px; margin-top:16px; align-items:center; }
+.pagination .page{ padding:8px 10px; border-radius:6px; text-decoration:none; color:var(--muted); background:transparent; }
+.pagination .page.active{ background:var(--brand); color:#fff; }
+
+/* ========== Sidebar ========== */
+.sidebar{ position:relative; }
+.widget{
+  background:var(--card); padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(13,17,23,0.03);
+  margin-bottom:12px;
+}
+.widget h4{ margin:0 0 8px 0; }
+.trend-list{ list-style:none; padding:0; margin:0; }
+.trend-list li{ display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed #eef2ff; color:var(--muted); }
+.trend-list li:last-child{ border-bottom:0; }
+
+/* Form input */
+.input-email{ width:100%; padding:8px; border-radius:6px; border:1px solid #eef2ff; margin-bottom:8px; }
+
+/* ========== Footer ========== */
+.sitefoot{ margin-top:20px; padding:18px 0; text-align:center; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:12px; align-items:center; }
+@media (max-width:980px){
+  .grid{ grid-template-columns:1fr; }
+  .cards{ grid-template-columns:1fr 1fr; }
+  .hero-media{ display:none; } /* ẩn ảnh hero khi màn nhỏ */
+  .searchbar input{ width:120px; }
+  .sitefoot{ flex-direction:column; text-align:center; }
+}
+@media (max-width:560px){
+  .topnav{ display:none; }  /* ẩn nav chính, có thể thay bằng menu mobile */
+  .cards{ grid-template-columns:1fr; }
+  .logo .name{ font-size:14px; }
+}
+
+/* Hỗ trợ truy cập: sr-only */
+.sr-only{
+  position:absolute !important;
+  height:1px; width:1px; overflow:hidden;
+  clip:rect(1px, 1px, 1px, 1px); white-space:nowrap;
+}
+/* --------- Bổ sung style cho các trang con --------- */
+
+/* Bài viết chi tiết */
+.article-detail img.article-hero{
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  margin:12px 0;
+}
+.article-detail h1{font-size:22px;}
+.article-detail h2{margin-top:16px; color:var(--brand);}
+.article-detail p{margin-bottom:12px;}
+.article-detail ul{margin-left:20px;}
+.backlink{margin-top:20px;}
+
+/* Hướng dẫn */
+.guide-list{padding-left:20px;}
+.guide-list li{margin-bottom:10px;}
+.guide-list a{color:var(--brand); text-decoration:none;}
+.guide-list a:hover{text-decoration:underline;}
+
+/* Trang liên hệ */
+.contact-form{
+  max-width:500px;
+  margin-top:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.contact-form input,
+.contact-form textarea{
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  padding:8px;
+  font-size:14px;
+  font-family:inherit;
+}
+.contact-form label{font-weight:600;}
